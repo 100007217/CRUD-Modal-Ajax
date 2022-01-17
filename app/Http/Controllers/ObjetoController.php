@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Objeto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ObjetoController extends Controller
 {
@@ -14,7 +15,8 @@ class ObjetoController extends Controller
      */
     public function index()
     {
-        //
+        $objetos=DB::select('select * from objetos');
+        return view('objetos.index', compact('objetos'));
     }
 
     /**
