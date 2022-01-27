@@ -38,5 +38,14 @@
             @empty
             <tr><td colspan="7">No hay registros</td></tr>
             @endforelse
+            <div id="crear">
+                <form action="{{route('objetos.create')}}" method="post">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                    <input type="hidden" name="_method" value="GET">
+                    <input type="text" name="titulo" id="" placeholder="titulo...">
+                    <input type="text" name="descripcion" id="" placeholder="descripcion...">
+                    <input type="submit" class="btn btn-primary" value="Nuevo objeto">
+                </form>
+            </div>
         </body>
         </html>

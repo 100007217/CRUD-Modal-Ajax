@@ -26,7 +26,7 @@ class ObjetoController extends Controller
      */
     public function create()
     {
-        //
+        return "hi";
     }
 
     /**

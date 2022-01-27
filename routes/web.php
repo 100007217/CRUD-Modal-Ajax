@@ -17,3 +17,5 @@ use App\Http\Controllers\ObjetoController;
 //Route::get('/', function () {return view('welcome');});
 
 Route::get('/',[ObjetoController::class,'index'])->name('objetos.index');
+//TO BE CONTONUED
+Route::get('/objetos/create',[ObjetoController::class,'create'])->name('objetos.create');
