@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ObjetoController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ObjetoController;
 
 
 /*
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+<<<<<<< HEAD
 /* Route::get('/', function () {
     return view('welcome');
 }); */
@@ -27,3 +29,10 @@ Route::get('/',[ObjetoController::class,'index']);
 Route::get('/Objetos/form-editar',[ObjetoController::class,'edit']);
 
 //Ruta eliminar
+=======
+//Route::get('/', function () {return view('welcome');});
+
+Route::get('/',[ObjetoController::class,'index'])->name('objetos.index');
+//TO BE CONTONUED
+Route::get('/objetos/create',[ObjetoController::class,'create'])->name('objetos.create');
+>>>>>>> 656b5cec1dad0af8e85bc792558f97d5ba20ba7f

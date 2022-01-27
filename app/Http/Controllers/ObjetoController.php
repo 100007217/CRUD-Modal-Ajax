@@ -16,8 +16,7 @@ class ObjetoController extends Controller
     public function index()
     {
         $objetos=DB::select('select * from objetos');
-        return view('index', compact('objetos'));
-
+        return view('objetos.index', compact('objetos'));
     }
 
     /**
@@ -25,9 +24,10 @@ class ObjetoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        DB::insert('insert into clientes (nombre, ocupacion, telefono, website) values (?,?,?,?)',[$request->input('nombre'),$request->input('ocupacion'),$request->input('telefono'),$request->input('website')]);
+        return redirect()->route('clientes.index');
     }
 
     /**
