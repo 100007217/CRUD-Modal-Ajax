@@ -24,9 +24,10 @@ class ObjetoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return "hi";
+        DB::insert('insert into clientes (nombre, ocupacion, telefono, website) values (?,?,?,?)',[$request->input('nombre'),$request->input('ocupacion'),$request->input('telefono'),$request->input('website')]);
+        return redirect()->route('clientes.index');
     }
 
     /**
