@@ -15,9 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
+
+//Ruta index
+Route::get('/',[ObjetoController::class,'index']);
+
 
 //Ruta editar
 Route::get('/Objetos/form-editar',[ObjetoController::class,'edit']);
+
+//Ruta eliminar

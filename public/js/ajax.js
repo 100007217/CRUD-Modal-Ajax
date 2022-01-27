@@ -1,1 +1,3 @@
-alert("Done");
+function eliminar() {
+    alert("Done");
+}

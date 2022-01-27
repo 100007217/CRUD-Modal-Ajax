@@ -16,7 +16,7 @@ class ObjetoController extends Controller
     public function index()
     {
         $objetos=DB::select('select * from objetos');
-        return view('objetos.index', compact('objetos'));
+        return view('index', compact('objetos'));
 
     }
 
