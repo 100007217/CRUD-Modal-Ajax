@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ObjetoController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ObjetoController;
 
 
 /*
@@ -18,6 +17,8 @@ use App\Http\Controllers\ObjetoController;
 
 //Route::get('/', function () {return view('welcome');});
 
-Route::get('/',[ObjetoController::class,'index'])->name('objetos.index');
+Route::get('/',[ObjetoController::class,'index']);
 //TO BE CONTONUED
 Route::get('/objetos/create',[ObjetoController::class,'create'])->name('objetos.create');
+//Ruta eliminación de elemento en la DB
+Route::delete('/delete-object/{id}',[ObjetoController::class,'destroy']);

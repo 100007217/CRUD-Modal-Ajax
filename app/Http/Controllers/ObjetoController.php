@@ -82,8 +82,16 @@ class ObjetoController extends Controller
      * @param  \App\Models\Objeto  $objeto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Objeto $objeto)
+    //Método encargado de elimar datos de la DB
+    public function destroy($id)
     {
-        //
+        try {
+            DB::delete('delete from objetos where id=?',[$id]);
+            //Redirección a Index
+            return redirect('/');
+            //return response()->json(array('resultado'=> 'OK'));
+      } catch (\Throwable $th) {
+            return response()->json(array('resultado'=> 'NOK: '.$th->getMessage()));
+      }
     }
 }
