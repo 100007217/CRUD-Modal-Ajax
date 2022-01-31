@@ -1,3 +1,36 @@
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    var modal = document.getElementById("myModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+function openModal(id, titulo, descripcion) {
+    document.getElementById('titulo').value = titulo;
+    document.getElementById('descripcion').value = descripcion;
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block";
+}
+//// FIN MODAL
+////  INICIO AJAX
+
 function objetoAjax() {
     var xmlhttp = false;
     try {
@@ -13,57 +46,4 @@ function objetoAjax() {
         xmlhttp = new XMLHttpRequest();
     }
     return xmlhttp;
-}
-
-function crear_objeto() {
-    /* Obtener elemento html donde introduciremos la recarga (datos o mensajes) */
-    var message = document.getElementById("message")
-        /* 
-    Obtener elemento/s que se pasarán como parámetros: token, method, inputs... 
-    var token = document.getElementById('token').getAttribute("content");
- 
-    Usar el objeto FormData para guardar los parámetros que se enviarán:
-    var formData = new FormData();
-    formData.append('_token', token);
-    formData.append('clave', valor);
-    */
-    var token = document.getElementById('token').getAttribute("content");
-    var method = document.getElementById('crear_objeto').value;
-    var titulo = document.getElementById('titulo_objeto').value;
-
-    message.innerHTML = titulo
-
-    var formData = new FormData();
-    formData.append('_token', token);
-    formData.append('_method', method);
-
-    /* Inicializar un objeto AJAX */
-    var ajax = objetoAjax();
-    /*
-    ajax.open("method", "rutaURL", true);
-    GET  -> No envía parámetros
-    POST -> Sí envía parámetros
-    true -> asynchronous
-    */
-    ajax.open("POST", "objetos/store", true);
-    ajax.onreadystatechange = function() {
-            if (ajax.readyState == 4 && ajax.status == 200) {
-                var respuesta = JSON.parse(this.responseText);
-                if (respuesta.resultado == "OK") {
-                    message.innerHTML = "Creado"
-                        /* creación de estructura: la estructura que creamos no ha de contener código php ni código blade*/
-                        /* utilizamos innerHTML para introduciremos la recarga en el elemento html pertinente */
-                } else {
-                    message.innerHTML = "Creado mal"
-                        /* creación de estructura: la estructura que creamos no ha de contener código php ni código blade*/
-                        /* utilizamos innerHTML para introduciremos la recarga en el elemento html pertinente */
-                }
-
-            }
-            filtro();
-        }
-        /*
-        send(string)->Sends the request to the server (used for POST)
-        */
-    ajax.send(formData);
 }
